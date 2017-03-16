@@ -22,7 +22,8 @@ export default class Albums extends Component {
 
   render () {
 
-    const albums = this.state.albums;
+    const artistId = this.props.artistId;
+    const albums = artistId ? this.state.albums.filter(album => album.artistId === artistId) : this.state.albums;
 
     return (
       <div>
