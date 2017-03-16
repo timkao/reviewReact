@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+import { convertAlbum } from '../utils';
 import Songs from '../components/Songs';
 
-const Album = (props) => {
+export default class Album extends Component {
 
-  const album = props.album;
+  constructor () {
+    super();
+    this.state = {
+      album: {}
+    };
+  }
 
-  return (
-    <div className="album">
-      <div>
-        <h3>{ album.name }</h3>
-        <img src={ album.imageUrl } className="img-thumbnail" />
+  componentDidMount () {
+    const albumId = this.props.match.params.albumId;
+
+    axios.get(`/api/albums/${albumId}`)
+      .then(res => res.data)
+      .then(album => this.setState({
+        album: convertAlbum(album)
+      }));
+  }
+
+  render () {
+    const album = this.state.album;
+
+    return (
+      <div className="album">
+        <div>
+          <h3>{ album.name }</h3>
+          <img src={ album.imageUrl } className="img-thumbnail" />
+        </div>
+        <Songs songs={album.songs} />
       </div>
-      <Songs songs={album.songs} />
-    </div>
-  );
+    );
+  }
 }
-
-export default Album;
