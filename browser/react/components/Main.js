@@ -16,7 +16,7 @@ export default class Main extends Component {
       <Router>
         <div id="main" className="container-fluid">
           <div className="col-xs-2">
-            <Sidebar deselectAlbum={this.deselectAlbum} />
+            <Sidebar />
           </div>
           <div className="col-xs-10">
             <Switch>
