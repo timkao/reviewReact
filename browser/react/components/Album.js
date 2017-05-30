@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { convertAlbum } from '../utils';
 import Songs from '../components/Songs';
 
 export default class Album extends Component {
@@ -18,7 +17,7 @@ export default class Album extends Component {
     axios.get(`/api/albums/${albumId}`)
       .then(res => res.data)
       .then(album => this.setState({
-        album: convertAlbum(album)
+        album
       }));
   }
 
