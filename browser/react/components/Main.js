@@ -7,7 +7,6 @@ import Artists from './Artists';
 import Artist from './Artist';
 import Sidebar from './Sidebar';
 import Player from './Player';
-import { convertAlbum, convertAlbums } from '../utils';
 
 export default class Main extends Component {
 
