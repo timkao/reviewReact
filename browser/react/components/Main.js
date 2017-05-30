@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import axios from 'axios';
 import StatefulAlbums from './StatefulAlbums';
-import Album from './Album';
-import Artists from './Artists';
-import Artist from './Artist';
+import SingleAlbum from './SingleAlbum';
+import AllArtists from './AllArtists';
+import SingleArtist from './SingleArtist';
 import Sidebar from './Sidebar';
 import Player from './Player';
 
@@ -20,9 +19,9 @@ export default class Main extends Component {
           <div className="col-xs-10">
             <Switch>
               <Route exact path="/albums" component={StatefulAlbums} />
-              <Route path="/albums/:albumId" component={Album} />
-              <Route exact path="/artists" component={Artists} />
-              <Route path="/artists/:artistId" component={Artist} />
+              <Route path="/albums/:albumId" component={SingleAlbum} />
+              <Route exact path="/artists" component={AllArtists} />
+              <Route path="/artists/:artistId" component={SingleArtist} />
               <Route component={StatefulAlbums} />
             </Switch>
           </div>
