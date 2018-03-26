@@ -1,10 +1,13 @@
 'use strict';
 
 module.exports = {
-  entry: './browser/react/index.js',
+  entry: [
+    'babel-polyfill',
+    './browser/react/index.js'
+  ],
   output: {
-    path: __dirname,
-    filename: './public/bundle.js'
+    filename: './bundle.js',
+    publicPath: '/',
   },
   context: __dirname,
   devtool: 'source-map',
