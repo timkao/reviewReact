@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class AllAlbums extends Component {
+function AllAlbums (props) {
 
-
-  render() {
-
-    const { albums, handleClick } = this.props;
+    const { albums, handleClick } =  props;
 
     return (
       <div>
@@ -32,7 +29,7 @@ class AllAlbums extends Component {
         </div>
       </div>
     )
-  }
+
 }
 
 export default AllAlbums;

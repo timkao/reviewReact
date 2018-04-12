@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SingleAlbum extends Component {
+function SingleAlbum (props) {
 
-
-  render() {
-
-    const { album } = this.props;
-
+    const { album } = props;
 
     return (
       <div className="album col-xs-10">
@@ -50,7 +46,7 @@ class SingleAlbum extends Component {
         </table>
       </div>
     )
-  }
+
 }
 
 export default SingleAlbum;

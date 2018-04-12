@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
-class Sidebar extends Component {
+function Sidebar (props) {
 
-  render() {
-
-    const { resetSelectedAlbum } = this.props;
+    const { resetSelectedAlbum } = props;
 
     return (
       <sidebar>
@@ -17,7 +15,7 @@ class Sidebar extends Component {
         </section>
       </sidebar>
     )
-  }
+
 }
 
 export default Sidebar;

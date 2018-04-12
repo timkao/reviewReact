@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
-class Footer extends Component {
+function Footer(props) {
 
-  render() {
+
     return (
       <footer>
         <div className="pull-left">
@@ -24,7 +24,7 @@ class Footer extends Component {
         </div>
       </footer>
     )
-  }
+
 }
 
 export default Footer;
