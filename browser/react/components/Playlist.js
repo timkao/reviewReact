@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import Songs from './Songs';
 import axios from 'axios';
+import AddSongForm from './AddSongForm';
 
 class Playlist extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      playlist: {}
+      playlist: {},
+      songs: []
     }
+    this.fetchPlayList = this.fetchPlayList.bind(this);
   }
 
   componentDidMount() {
@@ -22,16 +25,18 @@ class Playlist extends Component {
   }
 
   fetchPlayList(playlistId) {
-    axios.get(`/api/playlists/${playlistId}`)
+    return axios.get(`/api/playlists/${playlistId}`)
     .then(res => res.data)
     .then(playlist => {
       this.setState({playlist: playlist})
     })
   }
 
+
   render() {
 
     const { playlist } = this.state;
+    const { fetchPlayList } = this;
 
     return (
       <div>
@@ -39,6 +44,7 @@ class Playlist extends Component {
         <Songs songs={playlist.songs} /> {/** Hooray for reusability! */}
         {playlist.songs && !playlist.songs.length && <small>No songs.</small>}
         <hr />
+        <AddSongForm playlist={playlist} fetchPlayList={fetchPlayList} />
       </div>
     )
   }

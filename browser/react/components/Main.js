@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import StatefulAlbums from './StatefulAlbums';
 import SingleAlbum from './SingleAlbum';
-import AllArtists from './AllArtists';
+import FilterableArtists from './FilterableArtists';
 import SingleArtist from './SingleArtist';
 import Sidebar from './Sidebar';
 import Player from './Player';
@@ -53,7 +53,7 @@ export default class Main extends Component {
             <Switch>
               <Route exact path="/albums" component={StatefulAlbums} />
               <Route path="/albums/:albumId" component={SingleAlbum} />
-              <Route exact path="/artists" component={AllArtists} />
+              <Route exact path="/artists" component={FilterableArtists} />
               <Route path="/artists/:artistId" component={SingleArtist} />
               <Route path="/newplaylist" render={() => <NewPlayList addList={this.addList} />} />
               <Route path="/playlists/:playlistId" component={Playlist} />
